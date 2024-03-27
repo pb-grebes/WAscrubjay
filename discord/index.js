@@ -55,15 +55,16 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
+const region = process.argv[2] || 'US-CA';
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}`);
   initializeRBAJob(
     client,
-    'US-CA',
+    region,
     dbClient,
-    rbaStateData['US-CA'].filteredSpecies,
-    rbaStateData['US-CA'].channelIds,
-    rbaStateData['US-CA'].regionChannelMapping
+    rbaStateData[region].filteredSpecies,
+    rbaStateData[region].channelIds,
+    rbaStateData[region].regionChannelMapping
   ).then((CARBA) => (CARBA ? CARBA.start() : CARBA.destroy()));
   client.user.setActivity(`for birds`, {
     type: ActivityType.Watching,

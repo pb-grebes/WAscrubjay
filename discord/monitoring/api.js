@@ -1,6 +1,6 @@
 import { EmbedBuilder } from 'discord.js';
 
-const MONITOR_CHANNEL = '1152333983124828280';
+const MONITOR_CHANNEL = '1223336124806856916';
 
 function alertOnAPIFailure(client, error) {
   console.log('error', error);

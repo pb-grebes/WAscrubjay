@@ -14,3 +14,10 @@ is built to exist in a single server, and is not designed to be used in multiple
 
 Depending on interest, I may open source this bot. If you are interested in contributing, please
 reach out to me on Discord.
+
+## Developing
+
+
+Set DISCORD_TOKEN, DB_URI, EBIRD_TOKEN in .env
+
+Run the server with `node index.js`

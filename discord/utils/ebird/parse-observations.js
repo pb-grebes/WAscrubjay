@@ -21,9 +21,12 @@ export function parseFilter(filterData) {
  * @returns {Array<import('../../typedefs.js').RecentNotableObservation>} filteredObservations - Array of filtered observations
  */
 export function filterObservations(observations, filter) {
-  return observations.filter(
-    (observation) => !filter.has(observation._id.comName)
-  );
+  return observations
+    .filter((observation) => !observation._id.comName.includes('hybrid'))
+    .filter((observation) => {
+      const commonName = observation._id.comName.replace(/ \(.*\)/, '');
+      return !filter.has(commonName);
+    });
 }
 
 /**

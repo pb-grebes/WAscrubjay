@@ -57,7 +57,7 @@ function generateEmbed(observation) {
   const builder = new EmbedBuilder()
     .setColor(observation.previousConfirmed ? 0x32cd32 : 0xffff00)
     .setTitle(`${comName} - ${county}`)
-    .setAuthor({ name: 'ScrubJay RBA' })
+    // .setAuthor({ name: 'eBird RBA' })
     .setURL(`https://ebird.org/checklist/${observation.newChecklists[0]}`)
     .setDescription(description);
   return builder;
@@ -92,7 +92,7 @@ export async function sendEmbeds(client, embeds, channels) {
           try {
             channel.send({ embeds: [embed] });
           } catch (err) {
-            console.log('Likely missing permissions', err);
+            console.log('Likely missing permissions for ', channelId, err);
           }
         }, 500);
       });
