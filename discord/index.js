@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import {
   Client,
   GatewayIntentBits,
@@ -55,7 +57,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
-const region = process.argv[2] || 'US-CA';
+const region = 'US-OR';
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}`);
   initializeRBAJob(

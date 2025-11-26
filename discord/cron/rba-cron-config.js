@@ -85,7 +85,7 @@ const rbaStateData = {
     },
   },
   'US-OR': {
-    channelIds: ['1223336124806856916'],
+    channelIds: ['1260271368671334560'],
     filteredSpecies: oregonFilter,
     countyRegionMapping: {
       Baker: 'NE Oregon',
@@ -141,6 +141,7 @@ const rbaStateData = {
       Lincoln: ['1231471398635962458'],
       'Columbia Gorge': ['1232052754424266862'],
       'Tufted Puffin Testing': ['1219741914425851914'],
+      'Statewide Testing': ['1223336124806856916'],
     },
   },
 };
