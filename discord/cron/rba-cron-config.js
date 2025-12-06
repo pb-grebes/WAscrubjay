@@ -1,5 +1,6 @@
 import californiaFilter from './california/ca-rare-bird-filter.js';
 import oregonFilter from './oregon/or-rare-bird-filter.js';
+import washingtonFilter from './washington/wa-rar-bird-filter.js':
 
 const rbaStateData = {
   'US-CA': {
