@@ -57,7 +57,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
-const region = 'US-OR';
+const region = 'US-WA';
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}`);
   initializeRBAJob(
