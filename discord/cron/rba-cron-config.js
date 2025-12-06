@@ -200,6 +200,7 @@ const rbaStateData = {
       'Puget Trough': ['1446752526463402158'],
       'West Cascades': ['1446752564258537492'],
     },
+  },
 };
 
 export default rbaStateData;
