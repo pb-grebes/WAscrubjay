@@ -341,4 +341,4 @@ const washingtonFilter = [
   { species: 'Black-headed Grosbeak' },
   { species: 'Lazuli Bunting' },
 ];
-export default oregonFilter;
+export default washingtonFilter;
