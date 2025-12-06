@@ -146,6 +146,9 @@ const rbaStateData = {
     },
   },
   'US-WA': {
+     channelIds: ['1446765279429394443'],
+    filteredSpecies: washingtonFilter,
+    countyRegionMapping: {
         Adams: 'Columbia Plateau',
         Asotin: 'Blue Mountains',
         Benton: 'Columbia Plateau',
@@ -193,7 +196,7 @@ const rbaStateData = {
       'East Cascades': ['1446752181368918178'],
       'North Cascades': ['1446752264374190161'],
       'Northwest Coast': ['1446752339770740787'],
-      'Okanagon': ['1446752375187570688'],
+      'Okanogan': ['1446752375187570688'],
       'Puget Trough': ['1446752526463402158'],
       'West Cascades': ['1446752564258537492'],
     },
