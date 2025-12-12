@@ -146,7 +146,7 @@ const rbaStateData = {
     },
   },
   'US-WA': {
-     channelIds: ['1446765279429394443'],
+     channelIds: ['1446765279429394443', '1447776479617482864'],
     filteredSpecies: washingtonFilter,
     countyRegionMapping: {
         Adams: 'Columbia Plateau',
@@ -190,14 +190,14 @@ const rbaStateData = {
         Yakima: 'East Cascades',
      },
     regionChannelMapping: {
-      'Canadian Rocky Mountains': ['1446752087663837266'],
-      'Columbia Plateau': ['1446752146065326181'],
-      'East Cascades': ['1446752181368918178'],
-      'North Cascades': ['1446752264374190161'],
-      'Northwest Coast': ['1446752339770740787'],
-      'Okanogan': ['1446752375187570688'],
-      'Puget Trough': ['1446752526463402158'],
-      'West Cascades': ['1446752564258537492'],
+      'Canadian Rocky Mountains': ['1447777321330282576'],
+      'Columbia Plateau': ['1447777211762348155'],
+      'East Cascades': ['1446752181368918178', '1447776987086323774'],
+      'North Cascades': ['1447776881482141869'],
+      'Northwest Coast': ['1447776648337293414'],
+      'Okanogan': ['1447777281249509446'],
+      'Puget Trough': ['1447776593782243480'],
+      'West Cascades': ['1446752564258537492', '1447776936859533332'],
     },
   },
 };
