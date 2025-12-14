@@ -12,9 +12,41 @@ import initializeRBAJob from './cron/rba-cron.js';
 import commands from './command-map.js';
 import 'dotenv/config';
 import connectToCluster from './database/connect.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const recordsByCode = new Map();
+const recordsByName = new Map();
+
+// Get path to data/WBR.csv relative to index.js
+const baseDir = path.dirname(fileURLToPath(import.meta.url));
+const csvPath = path.join(baseDir, 'data', 'WBR.csv');
+
+// Read and parse WBR
+for (const line of fs.readFileSync(csvPath, 'utf8').split('\n').slice(1)) {
+  if (!line.trim()) continue;
+
+  const [species, code, count] = line.split(',');
+
+  const record = {
+    species: species.trim(),
+    bandingCode: code.trim().toUpperCase(),
+    count: Number(count),
+  };
+
+  recordsByCode.set(record.bandingCode, record);
+  recordsByName.set(record.species.toUpperCase(), record);
+}
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
+});
 console.log('Client created');
 
 const dbClient = await connectToCluster(process.env.DB_URI);
@@ -55,6 +87,39 @@ client.on(Events.InteractionCreate, async (interaction) => {
       });
     }
   }
+});
+
+// Command !records to the WBR document for review list bird counts
+client.on(Events.MessageCreate, async (message) => {
+  if (message.author.bot) return;
+
+  const content = message.content.trim();
+  if (!content.toLowerCase().startsWith('!records')) return;
+
+  const query = content.slice('!records'.length).trim();
+  if (!query) {
+    await message.reply(
+      'Usage: `!records {Common Name}` or `!records {Four-letter Banding Code}`'
+    );
+    return;
+  }
+
+  const key = query.toUpperCase();
+
+  let record =
+    recordsByCode.get(key) ||
+    recordsByName.get(key);
+
+  if (!record) {
+    await message.reply(
+      `Could not find "${query}". Species/code may be incorrect, have no accepted records, or be non-review.`
+    );
+    return;
+  }
+
+  await message.reply(
+    `**${record.species}** has **${record.count}** accepted records in Washington.`
+  );
 });
 
 const region = 'US-WA';
