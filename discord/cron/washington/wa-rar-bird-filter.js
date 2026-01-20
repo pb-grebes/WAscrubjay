@@ -281,6 +281,7 @@ const washingtonFilter = [
   { species: "Cassin's Finch" },
   { species: 'Redpoll' },
   { species: 'Red Crossbill' },
+  { species: 'White-winged Crossbill' },
   { species: 'Pine Siskin' },
   { species: 'Lesser Goldfinch' },
   { species: 'American Goldfinch' },
